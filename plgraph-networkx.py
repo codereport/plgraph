@@ -29,7 +29,7 @@ logos = { APL:       './logos/apl_logo.png',
           SIMULA:    './logos/simula_logo.png',
           SMALLTALK: './logos/smalltalk_logo.jpeg' }
 
-dependencies = { APL:       [], 
+dependencies = { APL      : [],
                  CLOJURE  : [ERLANG, LISP, RUBY],    # C++,  HASKELL, C#, JAVA, ML, PROLOG, RACKET, SCHEME
                  ELIXIR   : [CLOJURE, RUBY, ERLANG], # DONE
                  ERLANG   : [LISP, SMALLTALK],       # PLEX, PROLOG
