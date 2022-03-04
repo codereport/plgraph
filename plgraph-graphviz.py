@@ -29,12 +29,14 @@ logos = { 'ALGOL':     './logos/algol_logo.png',
           'PERL':      './logos/perl_logo.png',
           'PROLOG':    './logos/prolog_logo.png',
           'PYTHON':    './logos/python_logo.png',
+          'Q':         './logos/q_logo.png',
           'RACKET':    './logos/racket_logo.png',
           'RUBY':      './logos/ruby_logo.png',
           'RUST':      './logos/rust_logo.png',
           'SCALA':     './logos/scala_logo.png',
           'SCHEME':    './logos/scheme_logo.png',
           'SELF':      './logos/self_logo.png',
+          'SHAKTI':    './logos/shakti_logo.png',
           'SIMULA':    './logos/simula_logo.png',
           'SMALLTALK': './logos/smalltalk_logo.jpeg',
           'SML':       './logos/sml_logo.jpg',
@@ -65,6 +67,7 @@ dependencies = { 'BQN'      : ['J', 'APL'],
                  'SCALA'    : ['LISP', 'ERLANG', 'SCHEME', 'SMALLTALK', 'HASKELL', 'JAVA', 'F#', 'SML'], # EIFFEL Ocaml oz
                  'SCHEME'   : ['ALGOL', 'LISP'],
                  'SELF'     : ['APL', 'SMALLTALK'],
+                 'SHAKTI'   : ['K'],
                  'SIMULA'   : ['ALGOL'],
                  'SMALLTALK': ['LISP', 'SIMULA', 'APL'],                                       # MANY MORE
                  'SML'      : ['ML'], #PASCAL
@@ -77,7 +80,7 @@ dependencies = { 'BQN'      : ['J', 'APL'],
 dependencies_light = { 
                  'ALGOL'    : ['FORTRAN'],
                  'BQN'      : ['J', 'APL'],
-                 'C'        : ['ALGOL', 'FORTRAN'],                         # B BCPL PL/I FORTRAN
+                 'C'        : ['ALGOL', 'FORTRAN', 'CPP'],                         # B BCPL PL/I FORTRAN
                  'CLOJURE'  : ['JAVA', 'RACKET'],
                  'CPP'      : ['SIMULA', 'C', 'D'],                         # ADA BCPL CLU Modula 2
                  'C#'       : ['JAVA', 'F#'],                               # Eiffel ML modula 3
@@ -98,9 +101,11 @@ dependencies_light = {
                  'OCAML'    : ['ML'],
                  'PERL'     : ['CPP', 'C'],                                 # many more
                  'PYTHON'   : ['CPP', 'PERL'],                              # ADA CLU DYLAN modula 3
+                 'Q'        : ['K'],
                  'SCALA'    : ['HASKELL', 'JAVA'],                          # EIFFEL Ocaml oz
                  'SCHEME'   : ['ALGOL', 'LISP'],
                  'SELF'     : ['APL', 'SMALLTALK'],
+                 'SHAKTI'   : ['K'],
                  'SIMULA'   : ['ALGOL'],
                  'SMALLTALK': ['LISP', 'SIMULA', 'APL'],                    # MANY MORE
                  'SML'      : ['ML'],                                       #PASCAL
