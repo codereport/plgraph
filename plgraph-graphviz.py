@@ -14,6 +14,8 @@ logos = { 'ALGOL':     './logos/algol_logo.png',
           'ERLANG':    './logos/erlang_logo.png',
           'F#':        './logos/fsharp_logo.png',
           'FORTRAN':   './logos/fortran_logo.png',
+          'FL':        './logos/fl_logo.png',
+          'FP':        './logos/fp_logo.png',
           'HASKELL':   './logos/haskell_logo.png',
           'IO':        './logos/io_logo.png',
           'J':         './logos/j_logo.png',
@@ -79,7 +81,7 @@ dependencies = { 'BQN'      : ['J', 'APL'],
 
 dependencies_light = { 
                  'ALGOL'    : ['FORTRAN'],
-                 'BQN'      : ['J', 'APL'],
+                 'BQN'      : ['J', 'APL', 'K'],
                  'C'        : ['ALGOL', 'FORTRAN', 'CPP'],                         # B BCPL PL/I FORTRAN
                  'CLOJURE'  : ['JAVA', 'RACKET'],
                  'CPP'      : ['SIMULA', 'C', 'D'],                         # ADA BCPL CLU Modula 2
@@ -89,11 +91,13 @@ dependencies_light = {
                  'ELM'      : ['HASKELL'],                                  # ocaml
                  'ERLANG'   : ['SMALLTALK', 'PROLOG'],                      # PLEX
                  'F#'       : ['C#', 'SML', 'OCAML'],
+                 'FL'       : ['FP'],
+                 'FP'       : ['APL'],
                  'HASKELL'  : ['SCHEME', 'MIRANDA'],                        # CLEAN FP ISWIM Miranda SML SASL SISAL
-                 'J'        : ['APL'],
+                 'J'        : ['APL','FL'],
                  'JAVA'     : ['SMALLTALK', 'CPP', 'OBJC'],                 # CLU ADA EIFFEL modula 3 oberon pascal
                  'JS'       : ['SELF', 'JAVA', 'SCHEME'],
-                 'K'        : ['APL'],                                      # scheme
+                 'K'        : ['APL', 'SCHEME'],                            # scheme
                  'KOTLIN'   : ['C#', 'JAVA', 'SCALA'],                      # Eiffel groovy JS Python
                  'MIRANDA'  : ['ML'],
                  'ML'       : ['LISP'],
@@ -119,6 +123,7 @@ dependencies_light = {
 dot = gv.Digraph('pl-graph', format = 'png')
 
 SKIPPED_LANGS = ['IO', 'FORTRAN']
+# SKIPPED_LANGS = [lang for lang in logos.keys() if lang not in ['APL', 'J', 'FP', 'FL']]
 
 for lang in logos.keys():
     if lang in SKIPPED_LANGS:
