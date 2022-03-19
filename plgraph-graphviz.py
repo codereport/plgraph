@@ -123,7 +123,11 @@ dependencies_light = {
                  'TS'       : ['JS']
 }
 
+DARK_MODE = True
+BG_COLOR, HL_COLOR = ('black', 'white') if DARK_MODE else ('white', 'black')
+
 dot = gv.Digraph('pl-graph', format = 'png')
+dot.attr(bgcolor=BG_COLOR)
 
 SKIPPED_LANGS = ['IO', 'FORTRAN']
 # SKIPPED_LANGS = [lang for lang in logos.keys() if lang not in ['APL', 'J', 'FP', 'FL']]
@@ -131,21 +135,20 @@ SKIPPED_LANGS = ['IO', 'FORTRAN']
 for lang in logos.keys():
     if lang in SKIPPED_LANGS:
         continue
+
     image = Image.open(logos[lang])
-    if image.height > image.width:
-        dims = (int((75 / image.height) * image.width), 75)
-    else: 
-        dims = (75, int((75 / image.width) * image.height))
+    dims = (int((75 / image.height) * image.width), 75) \
+        if image.height > image.width else (75, int((75 / image.width) * image.height))
     new_image = image.resize(dims)
     name = './logos/resized/' + lang + '.png'
     new_image.save(name)
     
-    dot.node(lang, image = name, fontsize = '-1')
+    dot.node(lang, image = name, fontsize = '-1', style='filled', fillcolor='white')
 
 for lang, deps in dependencies_light.items():
     for dep in deps:
         if lang in SKIPPED_LANGS or dep in SKIPPED_LANGS:
             continue
-        dot.edge(dep, lang)
+        dot.edge(dep, lang, color=HL_COLOR)
 
 dot.render(directory='.').replace('\\', '/')

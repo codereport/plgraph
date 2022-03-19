@@ -1,0 +1,20 @@
+digraph "combinator-graph" {
+	D
+	"∆"
+	"S'" [fillcolor=gray style=filled]
+	S [fillcolor=gray style=filled]
+	"Σ" [fillcolor=gray style=filled]
+	"Ψ"
+	W [fillcolor=gray style=filled]
+	"D₂" -> D
+	"D₂" -> "∆"
+	"D₂" -> "S'"
+	"S'" -> S
+	D -> S
+	"∆" -> "Σ"
+	"S'" -> "Σ"
+	"D₂" -> "Ψ"
+	S -> W
+	"Σ" -> W
+	"Ψ" -> W
+}
