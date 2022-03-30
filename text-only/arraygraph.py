@@ -3,10 +3,10 @@ import graphviz as gv
 langs = { 
      'BQN'   : ['J', 'APL', 'K', 'I', 'Dyalog APL'],
      'Dyalog APL' : ['APL', 'J'],
-     'FL'    : ['FP'],
-     'FP'    : ['APL'],
+    #  'FL'    : ['FP'],
+    #  'FP'    : ['APL'],
      'I'     : ['K', 'J'],
-     'J'     : ['APL','FL'],
+     'J'     : ['APL'], #, 'FP'],
      'K'     : ['APL'],
      'Q'     : ['K'],
  #  'SHAKTI' : ['K'],
