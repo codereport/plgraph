@@ -1,7 +1,7 @@
 import graphviz as gv
 
 langs = { 
-     'BQN'   : ['J', 'APL', 'K', 'I', 'Dyalog APL'],
+     'BQN'   : ['J', 'K', 'I', 'Dyalog APL'],
      'Dyalog APL' : ['APL', 'J'],
     #  'FL'    : ['FP'],
     #  'FP'    : ['APL'],
