@@ -96,7 +96,7 @@ dependencies_light = {
                  'FL'       : ['FP'],
                  'FP'       : ['APL'],
                  'HASKELL'  : ['SCHEME', 'MIRANDA'],                        # CLEAN FP ISWIM Miranda SML SASL SISAL
-                 'J'        : ['APL','FL'],
+                 'J'        : ['APL'],
                  'JAVA'     : ['SMALLTALK', 'CPP', 'OBJC'],                 # CLU ADA EIFFEL modula 3 oberon pascal
                  'JS'       : ['SELF', 'JAVA', 'SCHEME'],
                  'K'        : ['APL', 'SCHEME'],                            # scheme
