@@ -13,6 +13,7 @@ langs = {
 }
 
 dot = gv.Digraph('arraylang-graph', format = 'png')
+dot.attr(size='10,10!')
 
 for lang in langs.keys():
     dot.node(lang)
