@@ -5,42 +5,48 @@ ID = 1 # IDENTITY
 BOTH = 2
 
 e_combinators = { 
-    'ε' : ['Ê'],
-    'E' : ['Ê'],
-    'Φ₁' : ['Ê'],
+    # 'ε' : ['Ê'],
+    'E' : [('Ê', ID)],
+    'Φ₁' : [('Ê', EQ)],
 }
 
 d2_combinators = { 
     #'D₂' : ['Ê'],
     'D'  : [('D₂', ID)], #'E'],
     '∆' : [('D₂', ID)], # 'ε'],
-    'Σ' : [('∆', EQ), ('Φ', ID), ('Ψ', ID)], # 'ε'],
+    'Σ' : [('∆', EQ), ('Φ', ID), ], # 'ε'],
+    'H₂' : [('Ψ', EQ),('Φ', EQ)],
     'Φ'  : [('D₂', EQ)], #'E\''],
-    'S'  : [('Φ', ID), ('D', EQ), ('Ψ', ID)],
+    'S'  : [('Φ', ID), ('D', EQ),],
     'Ψ'  : [('D₂', EQ)],
-    'W'  : [('S',ID) , ('Σ', ID)], # 'Σ'
+    'W'  : [('S',ID), ('Σ', ID), ('H₂', ID)],
+    # 'W'  : [('Ψ', BOTH), ('S',ID),]
 }
 
 d2bqn_combinators = { 
-    '⟜₂'  : [('⊸⟜', ID)], #'E'],
+    '⟜₂' : [('⊸⟜', ID)], #'E'],
     '⊸₂' : [('⊸⟜', ID)], # 'ε'],
-    '⊸₁' : [('⊸₂', EQ), ('3T', ID), ('○', ID)], # 'ε'],
-    '3T'  : [('⊸⟜', EQ)], #'E\''],
-    '⟜₁'  : [('3T', ID), ('⟜₂', EQ), ('○', ID)],
+    '⊸₁' : [('⊸₂', EQ), ('3T', ID)], # 'ε'],
+    ' '  : [('○', EQ),('3T', EQ)],
+    '3T' : [('⊸⟜', EQ)], #'E\''],
+    '⟜₁' : [('3T', ID), ('⟜₂', EQ)],
     '○'  : [('⊸⟜', EQ)],
-    '˜'  : [('⟜₁',ID) , ('⊸₁', ID)], # 'Σ'
+    '˜'  : [('⟜₁',ID) , ('⊸₁', ID), (' ', ID)], # 'Σ'
 }
 
-combinators = d2_combinators
+combinators = {**d2_combinators} #, **d2bqn_combinators}
 
 dot = gv.Digraph('combinator-graph', format = 'png')
 dot.attr(size='7,7!')
 
 for combinator in combinators.keys():
-    l = combinator.replace('₁', '')
-    l = l.replace('₂', '')
-    if combinator in ['S', 'W', 'Φ', 'Σ', '3T', '˜', '⊸₁', '⟜₁']:
-        dot.node(combinator, style='filled', fillcolor = 'gray', label=l)
+    if '⊸' in combinator or '⟜' in combinator:
+        l = combinator.replace('₁', '')
+        l = l.replace('₂', '')
+    else:
+        l = combinator
+    if combinator in ['S', 'W', 'Φ', 'Σ', '3T', '˜', '⊸₁', '⟜₁', 'H₂', ' ']:
+        dot.node(combinator, style='filled', fillcolor = 'lightgray', label=l)
     else: 
         dot.node(combinator, label=l)
 
