@@ -2,25 +2,38 @@ import graphviz as gv
 
 EQ = 0 # EQUALITY
 ID = 1 # IDENTITY
-BOTH = 2
+FK = 2 # FUNCTION + K
+BOTH = 3
 
 e_combinators = { 
-    # 'ε' : ['Ê'],
     'E' : [('Ê', ID)],
     'Φ₁' : [('Ê', EQ)],
+    'ε' : [('Ê', ID)],
 }
 
 d2_combinators = { 
-    #'D₂' : ['Ê'],
-    'D'  : [('D₂', ID)], #'E'],
-    '∆' : [('D₂', ID)], # 'ε'],
+    'D₂' : [('Ê', FK)],
+    'D'  : [('D₂', ID), ('E', FK)], #'E'],
+    '∆' : [('D₂', ID), ('ε', FK)],
     'Σ' : [('∆', EQ), ('Φ', ID), ], # 'ε'],
-    'H₂' : [('Ψ', EQ),('Φ', EQ)],
-    'Φ'  : [('D₂', EQ)], #'E\''],
+    'Π' : [('Ψ', EQ), ('Φ', EQ)],
+    'Φ'  : [('D₂', EQ), ('Φ₁', FK)],
     'S'  : [('Φ', ID), ('D', EQ),],
     'Ψ'  : [('D₂', EQ)],
-    'W'  : [('S',ID), ('Σ', ID), ('H₂', ID)],
+    'W'  : [('S',ID), ('Σ', ID), ('Π', ID)],
     # 'W'  : [('Ψ', BOTH), ('S',ID),]
+}
+
+b_combinators = {
+    'B₁' : [('D', FK), ('∆', FK)],
+    'B'  : [('B₁', FK), ('B₀.₅', FK)],
+    'B₀.₅'  : [('B₁', EQ)],
+}
+
+solo_combinators = {
+    'I' : [],
+    'K' : [],
+    'C' : [],
 }
 
 d2bqn_combinators = { 
@@ -34,7 +47,7 @@ d2bqn_combinators = {
     '˜'  : [('⟜₁',ID) , ('⊸₁', ID), (' ', ID)], # 'Σ'
 }
 
-combinators = {**d2_combinators} #, **d2bqn_combinators}
+combinators = {**d2_combinators, **e_combinators, **b_combinators}# , **solo_combinators} # , **d2bqn_combinators}
 
 dot = gv.Digraph('combinator-graph', format = 'png')
 dot.attr(size='7,7!')
@@ -45,7 +58,7 @@ for combinator in combinators.keys():
         l = l.replace('₂', '')
     else:
         l = combinator
-    if combinator in ['S', 'W', 'Φ', 'Σ', '3T', '˜', '⊸₁', '⟜₁', 'H₂', ' ']:
+    if combinator in ['S', 'W', 'Φ', 'Σ', '3T', '˜', '⊸₁', '⟜₁', 'H₂', ' ', 'B', 'Π', 'B₀.₅']:
         dot.node(combinator, style='filled', fillcolor = 'lightgray', label=l)
     else: 
         dot.node(combinator, label=l)
@@ -54,6 +67,7 @@ for combinator, deps in combinators.items():
     for (dep, t) in deps:
         if t == EQ:   s = 'dashed'
         if t == ID:   s = 'solid'
+        if t == FK:   s = 'dotted'
         if t == BOTH: s = 'dashed,bold'
         dot.edge(dep, combinator, style=s)
 
