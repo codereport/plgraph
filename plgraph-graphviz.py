@@ -132,7 +132,7 @@ BG_COLOR, HL_COLOR = ('black', 'white') if DARK_MODE else ('white', 'black')
 dot = gv.Digraph('pl-graph', format = 'png')
 dot.attr(bgcolor=BG_COLOR)
 
-SKIPPED_LANGS = ['IO', 'FORTRAN', 'FP', 'FL', 'SASL', 'KRC']
+SKIPPED_LANGS = ['IO', 'FORTRAN', 'FP', 'FL', 'SASL', 'KRC', 'GO']
 # SKIPPED_LANGS = [lang for lang in logos.keys() if lang not in ['APL', 'J', 'FP', 'FL']]
 
 for lang in logos.keys():
