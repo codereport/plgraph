@@ -16,6 +16,7 @@ logos = { 'ALGOL':     './logos/algol_logo.png',
           'FORTRAN':   './logos/fortran_logo.png',
           'FL':        './logos/fl_logo.png',
           'FP':        './logos/fp_logo.png',
+          'GO':        './logos/go_logo.png',
           'HASKELL':   './logos/haskell_logo.png',
           'IO':        './logos/io_logo.png',
           'J':         './logos/j_logo.png',
@@ -56,6 +57,7 @@ dependencies = { 'BQN'      : ['J', 'APL'],
                  'ELM'      : ['HASKELL', 'SML', 'F#'], # ocaml
                  'ERLANG'   : ['LISP', 'SMALLTALK', 'PROLOG', 'SML'],                                 # PLEX
                  'F#'       : ['C#', 'ERLANG', 'HASKELL', 'SCALA', 'SML', 'PYTHON'], # OCAML
+                 'GO'       : ['C', 'ERLANG'],
                  'HASKELL'  : ['LISP', 'SCHEME', 'MIRANDA'], # CLEAN FP ISWIM Miranda SML SASL SISAL
                  'IO'       : ['SMALLTALK', 'SELF', 'LISP'],                                   # LUA,    PYTHON, MORE
                  'J'        : ['APL'],
@@ -95,6 +97,7 @@ dependencies_light = {
                  'F#'       : ['C#', 'SML', 'OCAML'],
                  'FL'       : ['FP'],
                  'FP'       : ['APL'],
+                #  'GO'       : ['C', 'ERLANG'],
                  'HASKELL'  : ['SCHEME', 'MIRANDA'],                        # CLEAN FP ISWIM Miranda SML SASL SISAL
                  'J'        : ['APL'],
                  'JAVA'     : ['SMALLTALK', 'CPP', 'OBJC'],                 # CLU ADA EIFFEL modula 3 oberon pascal
@@ -123,13 +126,13 @@ dependencies_light = {
                  'TS'       : ['JS']
 }
 
-DARK_MODE = True
+DARK_MODE = False
 BG_COLOR, HL_COLOR = ('black', 'white') if DARK_MODE else ('white', 'black')
 
 dot = gv.Digraph('pl-graph', format = 'png')
 dot.attr(bgcolor=BG_COLOR)
 
-SKIPPED_LANGS = ['IO', 'FORTRAN']
+SKIPPED_LANGS = ['IO', 'FORTRAN', 'FP', 'FL', 'SASL', 'KRC']
 # SKIPPED_LANGS = [lang for lang in logos.keys() if lang not in ['APL', 'J', 'FP', 'FL']]
 
 for lang in logos.keys():
