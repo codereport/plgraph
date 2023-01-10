@@ -102,7 +102,7 @@ dependencies_light = {
                  'J'        : ['APL'],
                  'JAVA'     : ['SMALLTALK', 'CPP', 'OBJC'],                 # CLU ADA EIFFEL modula 3 oberon pascal
                  'JS'       : ['SELF', 'JAVA', 'SCHEME'],
-                 'K'        : ['APL', 'SCHEME'],                            # scheme
+                 'K'        : ['APL'],                                      # scheme
                  'KRC'      : ['SASL'],
                  'KOTLIN'   : ['C#', 'JAVA', 'SCALA'],                      # Eiffel groovy JS Python
                  'MIRANDA'  : ['ML', 'KRC'],
