@@ -9,6 +9,7 @@ langs = {
      'J'     : ['APL'], #, 'FP'],
      'K'     : ['APL'],
      'Q'     : ['K'],
+     'Uiua'  : ['BQN']
  #  'SHAKTI' : ['K'],
 }
 
