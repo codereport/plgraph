@@ -1,15 +1,22 @@
 import graphviz as gv
 
 langs = { 
-     'BQN'   : ['J', 'K', 'I', 'Dyalog APL'],
-     'Dyalog APL' : ['APL', 'J'],
+     'BQN'   : ['J', 'K', 'I', 'DyAPL 18.0'],
+     'DyAPL 1.0' : ['APL'],
+     'DyAPL 14.0' : ['J', 'DyAPL 1.0'],
+     'DyAPL 18.0' : ['DyAPL 14.0'],
     #  'FL'    : ['FP'],
     #  'FP'    : ['APL'],
      'I'     : ['K', 'J'],
-     'J'     : ['APL'], #, 'FP'],
+     'J'     : ['Sharp APL'], #, 'FP'],
+     'Sharp APL': ['APL'],
+     'Jelly' : ['J'],
+     'Jellyfish' : ['Jelly', 'Uiua', 'BQN', 'Q'],
      'K'     : ['APL'],
      'Q'     : ['K'],
-     'Uiua'  : ['BQN']
+     'Uiua'  : ['BQN'],
+     'Kap'   : ['DyAPL 18.0', 'BQN'],
+     'Kap++' : ['Kap']
  #  'SHAKTI' : ['K'],
 }
 
