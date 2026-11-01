@@ -16,7 +16,6 @@ langs = {
      'Q'     : ['K'],
      'Uiua'  : ['BQN'],
      'Kap'   : ['DyAPL 18.0', 'BQN'],
-     'Kap++' : ['Kap']
  #  'SHAKTI' : ['K'],
 }
 
